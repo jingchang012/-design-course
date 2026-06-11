@@ -10,12 +10,12 @@ import Link from "next/link";
 
 // 模擬章節資料
 const PLAYLIST = [
-  { id: "l1", title: "1-1 為什麼我們需要這堂課？", duration: "12:30", completed: true, isFree: true },
-  { id: "l2", title: "1-2 核心觀念重塑", duration: "18:15", completed: true, isFree: false },
-  { id: "l3", title: "1-3 實戰前的準備作業", duration: "14:15", completed: false, isFree: false },
-  { id: "l4", title: "2-1 拆解現有框架", duration: "25:00", completed: false, isFree: false },
-  { id: "l5", title: "2-2 找到你的獨特定位", duration: "30:20", completed: false, isFree: false },
-  { id: "l6", title: "2-3 案例分析：大師的思維模式", duration: "24:40", completed: false, isFree: false },
+  { id: "l1", title: "1-1 為什麼我們需要這堂課？", duration: "12:30", completed: true, isFree: true, videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4" },
+  { id: "l2", title: "1-2 核心觀念重塑", duration: "18:15", completed: true, isFree: false, videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4" },
+  { id: "l3", title: "1-3 實戰前的準備作業", duration: "14:15", completed: false, isFree: false, videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4" },
+  { id: "l4", title: "2-1 拆解現有框架", duration: "25:00", completed: false, isFree: false, videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4" },
+  { id: "l5", title: "2-2 找到你的獨特定位", duration: "30:20", completed: false, isFree: false, videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4" },
+  { id: "l6", title: "2-3 案例分析：大師的思維模式", duration: "24:40", completed: false, isFree: false, videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4" },
 ];
 
 const COMMENTS = [
@@ -76,31 +76,15 @@ function PlayerPageInner({ params }: PlayerPageProps) {
         <div className="flex-1 flex flex-col overflow-y-auto">
 
           {/* 影片播放區 */}
-          <div className="relative w-full bg-black" style={{ aspectRatio: "16/9", maxHeight: "60vh" }}>
-            <img src={coverImage} alt={course.title} className="w-full h-full object-cover opacity-50" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <motion.button
-                className="w-20 h-20 rounded-full bg-[var(--color-luxury-gold)]/20 border-2 border-[var(--color-luxury-gold)] flex items-center justify-center backdrop-blur-sm"
-                whileHover={{ scale: 1.1, backgroundColor: "rgba(197,168,128,0.3)" }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <PlayCircle className="w-10 h-10 text-[var(--color-luxury-gold)]" />
-              </motion.button>
-            </div>
-            {/* 影片控制列 */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent px-6 pb-4 pt-12">
-              <div className="h-1 bg-white/20 rounded-full mb-3">
-                <div className="h-full w-1/3 bg-[var(--color-luxury-gold)] rounded-full" />
-              </div>
-              <div className="flex items-center justify-between text-xs text-gray-400">
-                <span>04:12 / 12:30</span>
-                <div className="flex items-center gap-4">
-                  <span>1x</span>
-                  <span>字幕</span>
-                  <span>全螢幕</span>
-                </div>
-              </div>
-            </div>
+          <div className="relative w-full bg-black flex items-center justify-center" style={{ aspectRatio: "16/9", maxHeight: "60vh" }}>
+            <video
+              key={activeLesson}
+              src={PLAYLIST.find(l => l.id === activeLesson)?.videoUrl || "https://www.w3schools.com/html/mov_bbb.mp4"}
+              controls
+              autoPlay
+              poster={coverImage}
+              className="w-full h-full object-contain"
+            />
           </div>
 
           {/* 課程標題 & 進度 */}
