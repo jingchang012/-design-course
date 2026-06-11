@@ -11,11 +11,11 @@ import Link from "next/link";
 // 模擬章節資料
 const PLAYLIST = [
   { id: "l1", title: "1-1 為什麼我們需要這堂課？", duration: "12:30", completed: true, isFree: true, videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4" },
-  { id: "l2", title: "1-2 核心觀念重塑", duration: "18:15", completed: true, isFree: false, videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4" },
-  { id: "l3", title: "1-3 實戰前的準備作業", duration: "14:15", completed: false, isFree: false, videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4" },
-  { id: "l4", title: "2-1 拆解現有框架", duration: "25:00", completed: false, isFree: false, videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4" },
-  { id: "l5", title: "2-2 找到你的獨特定位", duration: "30:20", completed: false, isFree: false, videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4" },
-  { id: "l6", title: "2-3 案例分析：大師的思維模式", duration: "24:40", completed: false, isFree: false, videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4" },
+  { id: "l2", title: "1-2 核心觀念重塑", duration: "18:15", completed: true, isFree: false, videoUrl: "https://media.w3.org/2010/05/sintel/trailer.mp4" },
+  { id: "l3", title: "1-3 實戰前的準備作業", duration: "14:15", completed: false, isFree: false, videoUrl: "https://media.w3.org/2010/05/bunny/trailer.mp4" },
+  { id: "l4", title: "2-1 拆解現有框架", duration: "25:00", completed: false, isFree: false, videoUrl: "https://media.w3.org/2010/05/video/movie_300.mp4" },
+  { id: "l5", title: "2-2 找到你的獨特定位", duration: "30:20", completed: false, isFree: false, videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" },
+  { id: "l6", title: "2-3 案例分析：大師的思維模式", duration: "24:40", completed: false, isFree: false, videoUrl: "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" },
 ];
 
 const COMMENTS = [
